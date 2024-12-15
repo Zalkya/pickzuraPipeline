@@ -7,6 +7,8 @@ services:
             - POSTGRES_DB=${POSTGRES_DB}
         env_file:
             - secrets/postgres.env
+        ports:
+            - "5432:5432"  # Expose the default PostgreSQL port
         logging:
             options:
                 max-size: 10m
@@ -25,6 +27,7 @@ services:
         env_file:
             - secrets/fernet_key.env
             - secrets/postgres.env
+            - .env
         logging:
             options:
                 max-size: 10m
